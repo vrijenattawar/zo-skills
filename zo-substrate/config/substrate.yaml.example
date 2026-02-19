@@ -1,0 +1,36 @@
+# Zo Substrate Configuration
+# Copy to substrate.yaml and customize for your setup.
+#
+# This file configures bidirectional skill exchange between two Zo instances
+# using a shared GitHub repository as the substrate.
+
+identity:
+  name: "my-zo"                       # A short identifier for this Zo instance
+  handle: ""                          # Optional: your-handle.zo.computer
+
+partner:
+  name: "partner-zo"                  # A short identifier for the partner Zo
+  handle: ""                          # Optional: their-handle.zo.computer
+
+substrate:
+  repo: ""                            # GitHub repo (e.g., "username/substrate-repo")
+  branch: "main"                      # Branch to sync on
+  clone_method: "https"               # "https" or "ssh"
+
+export:
+  skills: []                          # Skill slugs to export. Empty = auto-detect all.
+  auto_detect: true                   # Auto-detect skills that have SKILL.md
+  exclude:                            # Skills to never export
+    - "zo-substrate"                  # Don't export yourself
+
+pull:
+  install_dir: "Skills"              # Where to install pulled skills
+  backup_existing: true              # Back up existing skills before overwriting
+  auto_pull: false                   # Pull on push (bidirectional sync)
+
+notifications:
+  enabled: false                     # Send notifications on sync events
+  method: "log"                      # "log", "sms", or "email"
+
+state:
+  dir: "N5/data/zo-substrate"        # Where to store sync state (relative to workspace)

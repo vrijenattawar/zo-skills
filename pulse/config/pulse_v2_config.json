@@ -1,0 +1,88 @@
+{
+  "version": "3.0",
+  "default_build_model": "anthropic:claude-opus-4-5-20251101",
+  "task_types": [
+    "code_build",
+    "research",
+    "content",
+    "analysis",
+    "hybrid"
+  ],
+  "interview": {
+    "seeded_threshold": 0.8,
+    "max_fragments": 50,
+    "channels": [
+      "sms",
+      "email",
+      "chat"
+    ]
+  },
+  "availability": {
+    "deep_work_marker": "[DW]",
+    "check_calendar": true,
+    "quiet_hours": {
+      "start": "22:00",
+      "end": "07:00"
+    },
+    "timezone": "America/New_York"
+  },
+  "validation": {
+    "enabled": true,
+    "code_validator_enabled": true,
+    "llm_filter_enabled": true,
+    "llm_filter_timeout_seconds": 120,
+    "code_validator_timeout_seconds": 60,
+    "auto_pass_on_validator_error": true,
+    "auto_reject_on_critical": true
+  },
+  "thresholds": {
+    "dead_threshold_seconds": 900,
+    "poll_interval_seconds": 180
+  },
+  "notifications": {
+    "sms_on_failure": true,
+    "sms_on_completion": true,
+    "sms_on_dead_drop": true
+  },
+  "tidying_swarm": {
+    "enabled": true,
+    "auto_fix_threshold": 0.9,
+    "drops": [
+      "integration_test",
+      "reference_check",
+      "stub_scan",
+      "dedup",
+      "cleanup"
+    ]
+  },
+  "google_drive": {
+    "outpost_folder": "Zo/Pulse Builds",
+    "email": "<YOUR_EMAIL>"
+  },
+  "lifecycle": {
+    "enabled": true,
+    "poll_interval_minutes": 5,
+    "seeded_threshold": 0.8,
+    "max_seeded_attempts": 10,
+    "idle_shutdown_minutes": 30
+  },
+  "auto_fix": {
+    "enabled": true,
+    "confidence_threshold": 0.9
+  },
+  "fragment_routing": {
+    "require_tag_for_multiple": true,
+    "auto_route_single_interview": true
+  },
+  "learning_mode": {
+    "enabled": true,
+    "default_build_mode": "learning",
+    "understanding_bank_path": "N5/config/understanding_bank.json",
+    "friction_levels": {
+      "minimal": "manual spawn, summary only",
+      "standard": "manual spawn, decision points, wave reviews",
+      "full": "manual spawn, decision points, wave reviews, learning drops, pedagogical AAR"
+    },
+    "default_friction": "standard"
+  }
+}

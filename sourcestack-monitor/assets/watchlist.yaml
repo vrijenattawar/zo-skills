@@ -1,0 +1,8 @@
+companies:
+- label: Stripe
+  url: stripe.com
+filters:
+  countries: []
+  remote_only: false
+  seniority: []
+roles: []

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "case-partnership-high",
+    "message": "Need to schedule a strategic partnership session with Acme. Goal is to align on pilot scope and next step owners.",
+    "title": "Acme Partnership Session",
+    "start": "2026-02-18T15:00:00-05:00",
+    "end": "2026-02-18T15:45:00-05:00",
+    "timezone": "America/New_York",
+    "attendees": ["alice@acme.com"],
+    "expected": {
+      "meeting_intent": "partnership",
+      "promotion_bias": "promote-now"
+    }
+  },
+  {
+    "id": "case-investor-high",
+    "message": "Investor update call to discuss key decision points on funding timeline. Need to walk away with a clear follow-up plan.",
+    "title": "Investor Update",
+    "start": "2026-02-19T10:00:00-05:00",
+    "end": "2026-02-19T10:30:00-05:00",
+    "timezone": "America/New_York",
+    "attendees": ["partner@fund.com"],
+    "expected": {
+      "meeting_intent": "investor",
+      "promotion_bias": "promote-now"
+    }
+  },
+  {
+    "id": "case-checkin-archive",
+    "message": "Quick catch up with advisor, light touch and for record only, no follow-up expected.",
+    "title": "Advisor Catch Up",
+    "start": "2026-02-21T14:00:00-05:00",
+    "end": "2026-02-21T14:20:00-05:00",
+    "timezone": "America/New_York",
+    "attendees": ["advisor@example.com"],
+    "expected": {
+      "meeting_intent": "advisory",
+      "promotion_bias": "archive-only"
+    }
+  }
+]

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume:Decoded - Hardik</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    :root {
+      --purple-primary: #7C3AED;
+      --purple-light: #EDE9FE;
+      --purple-dark: #5B21B6;
+      --text-primary: #1F2937;
+      --text-muted: #6B7280;
+      --text-light: #9CA3AF;
+      --bg-card: #F9FAFB;
+      --bg-white: #FFFFFF;
+      --border-light: #E5E7EB;
+      --amber: #F59E0B;
+      --amber-light: #FEF3C7;
+      --amber-dark: #D97706;
+      --green: #10B981;
+      --green-light: #D1FAE5;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 9pt;
+      line-height: 1.4;
+      color: var(--text-primary);
+      background: white;
+    }
+    
+    .page {
+      width: 8.5in;
+      height: 11in;
+      padding: 0.35in 0.45in 0.4in 0.45in;
+      position: relative;
+      page-break-after: always;
+      overflow: hidden;
+    }
+    
+    .page:last-child { page-break-after: avoid; }
+    
+    /* === HEADER === */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 6px;
+      border-bottom: 2.5px solid var(--purple-primary);
+      margin-bottom: 10px;
+    }
+    
+    .header-left {
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--purple-primary);
+      letter-spacing: 1.5px;
+    }
+    
+    .header-right {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    
+    /* === HERO === */
+    .hero {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .candidate-name {
+      font-size: 24pt;
+      font-weight: 700;
+      margin-bottom: 2px;
+      color: var(--text-primary);
+    }
+    
+    .candidate-role {
+      font-size: 11pt;
+      color: var(--purple-primary);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    
+    .candidate-meta {
+      font-size: 9pt;
+      color: var(--text-muted);
+    }
+    
+    /* === CANDIDATE BOTTOM LINE === */
+    .bottom-line-section {
+      margin-bottom: 10px;
+    }
+    
+    .bottom-line-header {
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    
+    .bottom-line-box {
+      background: var(--purple-light);
+      border-left: 4px solid var(--purple-primary);
+      border-radius: 6px;
+      padding: 10px 14px;
+    }
+    
+    .bottom-line-text {
+      font-size: 9.5pt;
+      color: var(--text-primary);
+      line-height: 1.45;
+      font-style: italic;
+    }
+    
+    /* === VERDICT === */
+    .verdict-section {
+      margin-bottom: 10px;
+    }
+    
+    .verdict-box {
+      background: var(--purple-primary);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    
+    .verdict-title {
+      font-size: 13pt;
+      font-weight: 600;
+    }
+    
+    /* === SIGNAL SECTION === */
+    .signal-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg-card);
+      border-radius: 6px;
+      padding: 8px 14px;
+      margin-bottom: 10px;
+    }
+    
+    .signal-label-main {
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    
+    .signal-bars {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+    
+    .signal-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .signal-item-label {
+      font-size: 8pt;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    
+    .signal-bar-mini {
+      width: 80px;
+      height: 6px;
+      background: var(--border-light);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .signal-bar-fill {
+      height: 100%;
+      background: var(--purple-primary);
+      border-radius: 3px;
+    }
+    
+    .signal-bar-fill.resume { opacity: 0.5; }
+    
+    .signal-value {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--text-primary);
+      min-width: 36px;
+    }
+    
+    .signal-meta {
+      font-size: 8pt;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    
+    /* === BEHAVIORAL EVIDENCE === */
+    .behavioral-section {
+      margin-bottom: 10px;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--purple-primary);
+    }
+    
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .section-subtitle {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+    }
+    
+    .behavioral-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    
+    .behavioral-item {
+      padding-left: 10px;
+      border-left: 2.5px solid var(--purple-light);
+    }
+    
+    .behavioral-item-title {
+      font-weight: 700;
+      font-size: 9pt;
+      color: var(--purple-primary);
+      margin-bottom: 2px;
+    }
+    
+    .behavioral-quote {
+      font-size: 8pt;
+      font-style: italic;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+    
+    .behavioral-citation {
+      font-size: 7pt;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+    
+    /* === QUESTIONS === */
+    .questions-section {
+      margin-bottom: 0;
+    }
+    
+    .questions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    
+    .question {
+      padding-left: 10px;
+      border-left: 2px solid var(--purple-light);
+    }
+    
+    .question-topic {
+      color: var(--purple-primary);
+      font-weight: 700;
+      font-size: 8.5pt;
+      margin-bottom: 2px;
+    }
+    
+    .question-text {
+      font-style: italic;
+      font-size: 8pt;
+      line-height: 1.35;
+      color: var(--text-primary);
+    }
+    
+    /* === PAGE 2: TRADE-OFFS === */
+    .tradeoffs-section {
+      margin-bottom: 20px;
+    }
+    
+    .tradeoffs-header {
+      font-size: 11pt;
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--purple-primary);
+    }
+    
+    .tradeoffs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    
+    .tradeoff-card {
+      background: var(--bg-card);
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+    
+    .tradeoff-need {
+      font-weight: 700;
+      font-size: 9pt;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    
+    .tradeoff-verdict {
+      font-size: 9pt;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    
+    .tradeoff-verdict.strong { color: var(--green); }
+    .tradeoff-verdict.verify { color: var(--amber-dark); }
+    .tradeoff-verdict.gap { color: var(--text-muted); }
+    
+    .tradeoff-reason {
+      font-size: 8pt;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+    
+    /* === TECH STACK ALIGNMENT === */
+    .stack-section {
+      margin-top: 20px;
+    }
+    
+    .stack-header {
+      font-size: 11pt;
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--purple-primary);
+    }
+    
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    
+    .stack-column {
+      background: var(--bg-card);
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+    
+    .stack-column-header {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .stack-column.match .stack-column-header { color: var(--green); }
+    .stack-column.mismatch .stack-column-header { color: #DC2626; }
+    .stack-column.unknown .stack-column-header { color: var(--text-muted); }
+    
+    .stack-item {
+      font-size: 8.5pt;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .stack-item:last-child { border-bottom: none; }
+    
+    .stack-item-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .stack-item-note {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+    
+    .stack-empty {
+      font-size: 8pt;
+      color: var(--text-light);
+      font-style: italic;
+    }
+    
+    /* === FOOTER === */
+    .footer {
+      position: absolute;
+      bottom: 0.3in;
+      left: 0.45in;
+      right: 0.45in;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7pt;
+      color: var(--text-muted);
+      padding-top: 6px;
+      border-top: 1px solid var(--border-light);
+    }
+    
+    .footer-brand { color: var(--purple-primary); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <!-- ==================== PAGE 1 ==================== -->
+  <div class="page">
+    <div class="header">
+      <div class="header-left">RESUME:DECODED</div>
+      <div class="header-right">Careerspan × CorridorX · Docsum · Feb 2026</div>
+    </div>
+    
+    <!-- HERO -->
+    <div class="hero">
+      <div class="candidate-name">Hardik</div>
+      <div class="candidate-role">Founding Engineer (Fullstack)</div>
+      <div class="candidate-meta">4.7y exp · 3.5y IC · 1.2y Lead · Keysight → American Express</div>
+    </div>
+    
+    <!-- CANDIDATE BOTTOM LINE -->
+    <div class="bottom-line-section">
+      <div class="bottom-line-header">📋 Candidate Bottom Line</div>
+      <div class="bottom-line-box">
+        <div class="bottom-line-text">Strong recommend as a founding full-stack engineer with rare zero-to-one platform experience and immediate impact potential, with manageable ramp on Next.js/PostgreSQL specifics and contract-focused document processing.</div>
+      </div>
+    </div>
+    
+    <!-- VERDICT -->
+    <div class="verdict-section">
+      <div class="verdict-box">
+        <div class="verdict-title">👍 Take This Meeting — 85/100</div>
+      </div>
+    </div>
+    
+    <!-- SIGNAL -->
+    <div class="signal-section">
+      <div class="signal-label-main">📊 SKILLS SIGNAL</div>
+      <div class="signal-bars">
+        <div class="signal-item">
+          <span class="signal-item-label">Story-verified</span>
+          <div class="signal-bar-mini">
+            <div class="signal-bar-fill" style="width: 78%"></div>
+          </div>
+          <span class="signal-value">78%</span>
+        </div>
+        <div class="signal-item">
+          <span class="signal-item-label">Resume-backed</span>
+          <div class="signal-bar-mini">
+            <div class="signal-bar-fill resume" style="width: 22%"></div>
+          </div>
+          <span class="signal-value">22%</span>
+        </div>
+      </div>
+      <div class="signal-meta">45 skills · 3 interviews</div>
+    </div>
+    
+    <!-- BEHAVIORAL EVIDENCE -->
+    <div class="behavioral-section">
+      <div class="section-header">
+        <span class="section-title">🔍 What the Resume Can't Tell You</span>
+        <span class="section-subtitle">— Behavioral signals from interviews</span>
+      </div>
+      
+      <div class="behavioral-grid">
+        <div class="behavioral-item">
+          <div class="behavioral-item-title">Zero-To-One Building</div>
+          <div class="behavioral-quote">"One of first engineers architecting ML SaaS platform from ground up"</div>
+          <div class="behavioral-citation">— Keysight, Senior Machine Learning Engineer (R&amp;D)</div>
+        </div>
+        <div class="behavioral-item">
+          <div class="behavioral-item-title">End-To-End Ownership</div>
+          <div class="behavioral-quote">"Solo product leader responsible for architecture, Python/Couchbase data aggregation, Java/Spring Boot backend, ReactJS U"</div>
+          <div class="behavioral-citation">— American Express, Software Engineer (Full Stack)</div>
+        </div>
+        <div class="behavioral-item">
+          <div class="behavioral-item-title">Scaling Mindset</div>
+          <div class="behavioral-quote">"Automated tracking and decommissioning of underutilized databases across 150+ services, supporting 2,000-3,000 engineers"</div>
+          <div class="behavioral-citation">— American Express, Software Engineer (Full Stack)</div>
+        </div>
+        <div class="behavioral-item">
+          <div class="behavioral-item-title">Stakeholder-Driven Design</div>
+          <div class="behavioral-quote">"Guided by stakeholder feedback from internal teams and external clients (Apple, Samsung)"</div>
+          <div class="behavioral-citation">— Keysight, Senior Machine Learning Engineer (R&amp;D)</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- QUESTIONS -->
+    <div class="questions-section">
+      <div class="section-header">
+        <span class="section-title">❓ Questions That Matter</span>
+      </div>
+      
+      <div class="questions-grid">
+        <div class="question">
+          <div class="question-topic">End-to-end ownership under pressure</div>
+          <div class="question-text">"Tell me about a feature you owned that hit unexpected complexity mid-build. How did you navigate the trade-offs between shipping on time and doing it right?"</div>
+        </div>
+        <div class="question">
+          <div class="question-topic">Technical decision reversals</div>
+          <div class="question-text">"Tell me about a technical decision you made that you later realized was wrong. How did you discover it, and what did unwinding it look like?"</div>
+        </div>
+        <div class="question">
+          <div class="question-topic">Collaboration with non-technical stakeholders</div>
+          <div class="question-text">"What&#x27;s your experience translating technical constraints into business terms when a founder or customer pushes back on a timeline or approach?"</div>
+        </div>
+        <div class="question">
+          <div class="question-topic">Building for others to inherit</div>
+          <div class="question-text">"When you&#x27;ve built core systems, how have you thought about making them understandable to engineers who join after you? Walk me through a specific example."</div>
+        </div>
+        <div class="question">
+          <div class="question-topic">Ambiguity and incomplete requirements</div>
+          <div class="question-text">"Tell me about a time you had to build something with unclear or shifting requirements. How did you decide when to push for clarity vs. when to just start building?"</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <span>Resume:Decoded by <span class="footer-brand">Careerspan</span> × CorridorX</span>
+      <span>1</span>
+    </div>
+  </div>
+  
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page">
+    <div class="header">
+      <div class="header-left">RESUME:DECODED</div>
+      <div class="header-right">Careerspan × CorridorX · Docsum · Feb 2026</div>
+    </div>
+    
+    <!-- TRADE-OFFS -->
+    <div class="tradeoffs-section">
+      <div class="tradeoffs-header">↔ Your Priorities → Fit</div>
+      
+      <div class="tradeoffs-grid">
+        <div class="tradeoff-card">
+          <div class="tradeoff-need">Own features end-to-end</div>
+          <div class="tradeoff-verdict strong">Strong fit</div>
+          <div class="tradeoff-reason">Demonstrated full-stack ownership from concept to deployment</div>
+        </div>
+        <div class="tradeoff-card">
+          <div class="tradeoff-need">Build core systems</div>
+          <div class="tradeoff-verdict strong">Strong fit</div>
+          <div class="tradeoff-reason">Evidence of building foundational infrastructure and architecture</div>
+        </div>
+        <div class="tradeoff-card">
+          <div class="tradeoff-need">Tech stack alignment (Next.js, FastAPI, PostgreSQL)</div>
+          <div class="tradeoff-verdict verify">Verify in meeting</div>
+          <div class="tradeoff-reason">85 score suggests solid but not exact stack match—probe depth on specific technologies</div>
+        </div>
+        <div class="tradeoff-card">
+          <div class="tradeoff-need">Make technical decisions autonomously</div>
+          <div class="tradeoff-verdict strong">Strong fit</div>
+          <div class="tradeoff-reason">Track record of architectural decisions and technical leadership</div>
+        </div>
+        <div class="tradeoff-card">
+          <div class="tradeoff-need">Contribute to company direction</div>
+          <div class="tradeoff-verdict verify">Verify in meeting</div>
+          <div class="tradeoff-reason">Strategic input hard to assess from resume—explore examples of product/business influence</div>
+        </div>
+        <div class="tradeoff-card">
+          <div class="tradeoff-need">AWS production scale experience</div>
+          <div class="tradeoff-verdict gap">More signal needed</div>
+          <div class="tradeoff-reason">Prototyping strength clear; less signal on operating systems at scale in production</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- TECH STACK ALIGNMENT -->
+    <div class="stack-section">
+      <div class="stack-header">🎯 Culture Alignment Signals</div>
+      
+      <div class="stack-grid">
+        <div class="stack-column match">
+          <div class="stack-column-header">✓ Match</div>
+          <div class="stack-item">
+            <div class="stack-item-name">Own features end-to-end</div>
+            <div class="stack-item-note">Story-verified</div>
+          </div>
+          <div class="stack-item">
+            <div class="stack-item-name">Build core systems</div>
+            <div class="stack-item-note">Story-verified</div>
+          </div>
+          <div class="stack-item">
+            <div class="stack-item-name">Make technical decisions</div>
+            <div class="stack-item-note">Story-verified</div>
+          </div>
+          <div class="stack-item">
+            <div class="stack-item-name">Contribute to company direction</div>
+            <div class="stack-item-note">Story-verified</div>
+          </div>
+          <div class="stack-item">
+            <div class="stack-item-name">Prototype Rapidly</div>
+            <div class="stack-item-note">Story-verified</div>
+          </div>
+          
+        </div>
+        
+        <div class="stack-column mismatch">
+          <div class="stack-column-header">✗ Mismatch</div>
+          <div class="stack-empty">None identified</div>
+        </div>
+        
+        <div class="stack-column unknown">
+          <div class="stack-column-header">? Unknown</div>
+          <div class="stack-item">
+            <div class="stack-item-name">Document work clearly</div>
+            <div class="stack-item-note">Resume signal only</div>
+          </div>
+          <div class="stack-item">
+            <div class="stack-item-name">Support Onboarding</div>
+            <div class="stack-item-note">Resume signal only</div>
+          </div>
+          <div class="stack-item">
+            <div class="stack-item-name">Technical documentation</div>
+            <div class="stack-item-note">Resume signal only</div>
+          </div>
+          <div class="stack-item">
+            <div class="stack-item-name">Next.js</div>
+            <div class="stack-item-note">Resume signal only</div>
+          </div>
+          <div class="stack-item">
+            <div class="stack-item-name">PostgreSQL</div>
+            <div class="stack-item-note">Resume signal only</div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <span>Resume:Decoded by <span class="footer-brand">Careerspan</span> × CorridorX</span>
+      <span>2</span>
+    </div>
+  </div>
+</body>
+</html>

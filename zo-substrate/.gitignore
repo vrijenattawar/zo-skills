@@ -1,0 +1,4 @@
+config/substrate.yaml
+!config/substrate.yaml.example
+__pycache__/
+*.pyc

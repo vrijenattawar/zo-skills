@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "<YOUR_PRODUCT> Structured Input",
+  "description": "Schema for Mode B structured input from <YOUR_PRODUCT> API (v2.0)",
+  "type": "object",
+  "required": ["candidate", "skills"],
+  "properties": {
+    "candidate": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "company": {"type": "string"},
+        "email": {"type": "string"},
+        "referred_by": {"type": "string"},
+        "applied_date": {"type": "string"}
+      }
+    },
+    "overall_score": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 100
+    },
+    "bottom_line": {
+      "type": "string"
+    },
+    "qualification": {
+      "type": "string",
+      "description": "e.g., 'Well-aligned', 'Partially aligned'"
+    },
+    "qualification_detail": {
+      "type": ["string", "null"],
+      "description": "e.g., 'Atypical Background'"
+    },
+    "career_trajectory": {
+      "type": ["string", "null"],
+      "description": "e.g., 'Industry Shift', 'Lateral Move'"
+    },
+    "potential_dealbreakers": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "category_scores": {
+      "type": "object",
+      "properties": {
+        "background": {"type": "integer", "maximum": 100},
+        "uniqueness": {"type": "integer", "maximum": 100},
+        "responsibilities": {"type": "integer", "maximum": 100},
+        "hard_skills": {"type": "integer", "maximum": 100},
+        "soft_skills": {"type": "integer", "maximum": 100}
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["skill_name", "our_take"],
+        "properties": {
+          "skill_name": {"type": "string"},
+          "category": {
+            "type": "string",
+            "enum": ["Responsibility", "Hard Skill", "Soft Skill"]
+          },
+          "rating": {
+            "type": "string",
+            "enum": ["Excellent", "Good", "Fair", "Gap"]
+          },
+          "required_level": {"type": "string"},
+          "required_score": {"type": "integer", "minimum": 1, "maximum": 5},
+          "importance": {"type": "integer", "minimum": 1, "maximum": 10},
+          "direct_experience_score": {"type": "integer", "minimum": 1, "maximum": 10},
+          "experience_type": {
+            "type": "string",
+            "enum": ["Direct", "Transferable"]
+          },
+          "evidence_type": {
+            "type": "string",
+            "enum": ["Story+profile", "Story", "Profile", "Resume", "Gap"]
+          },
+          "our_take": {"type": "string"},
+          "contributing_skills": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "story_ids": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "source_page": {"type": "string"}
+        }
+      }
+    },
+    "stories": {
+      "type": "object",
+      "description": "Map of story IDs to story content",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "title": {"type": "string"},
+            "content": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+# Minimal SaaS Landing Page Template
+# Clean, professional template based on Linear, Vercel, and Stripe patterns
+
+---
+# TEMPLATE METADATA
+
+name: minimal-saas
+description: |
+  Clean, professional SaaS landing page. Works for B2B tools,
+  developer products, and productivity apps. Emphasizes clarity
+  and trust over flashiness. Ideal for established companies that
+  want to communicate competence and reliability.
+
+source: |
+  Synthesized from Linear, Vercel, and Stripe landing page patterns.
+  Captures the "grown-up startup" aesthetic with restrained color usage
+  and emphasis on typography hierarchy.
+
+created: 2026-02-06
+
+---
+# COLOR PALETTE
+
+palette:
+  primary: "#0A0A0A"      # Near-black - primary text, key elements
+  secondary: "#525252"    # Medium gray - secondary text, borders
+  accent: "#2563EB"       # Professional blue - CTAs, links, highlights
+  background: "#FFFFFF"   # Pure white - main page background
+  surface: "#FAFAFA"      # Off-white - card backgrounds, sections
+  text: "#0A0A0A"         # Near-black - high contrast body text
+  text_muted: "#737373"   # Gray - secondary text, captions
+
+---
+# TYPOGRAPHY
+
+typography:
+  heading_font: "Inter"
+  body_font: "Inter"
+  scale: normal
+  heading_weight: 600
+
+---
+# LAYOUT SETTINGS
+
+layout:
+  max_width: standard
+  spacing: balanced
+  border_radius: subtle
+
+---
+# PAGE SECTIONS
+
+sections:
+  - type: hero
+    variant: centered
+  
+  - type: logos
+    variant: simple
+  
+  - type: features
+    variant: grid-3col
+  
+  - type: testimonials
+    variant: single
+  
+  - type: cta
+    variant: centered
+
+---
+# STYLE NOTES
+
+style_notes: |
+  Minimal, sophisticated aesthetic that relies on typography and spacing
+  rather than color or ornamental elements. Key characteristics:
+  
+  - Typography-driven design with excellent hierarchy
+  - Subtle shadows only (shadow-sm, shadow-md max)
+  - No gradients — solid colors throughout
+  - Generous whitespace between sections
+  - Icons from Lucide with stroke-width 1.5
+  - Button style: solid fill with subtle hover states
+  - Links: underline on hover, not color changes
+  - Overall density: spacious but not wastefully empty
+  - Content arrangement: centered layouts with clear focal points
+  - Border treatment: subtle rounded corners (4px)
+  - Animation: minimal, smooth transitions only
+  
+  The aesthetic conveys: "We are serious about our product and 
+  our customers. We don't need flashy design to prove our worth."
+  
+  Think Linear's clarity, Vercel's technical confidence, and 
+  Stripe's business maturity rolled into one template.

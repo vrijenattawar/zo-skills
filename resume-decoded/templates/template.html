@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume:Decoded - {{candidate_name}}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    :root {
+      --purple-primary: #7C3AED;
+      --purple-light: #EDE9FE;
+      --purple-dark: #5B21B6;
+      --text-primary: #1F2937;
+      --text-muted: #6B7280;
+      --text-light: #9CA3AF;
+      --bg-card: #F9FAFB;
+      --bg-white: #FFFFFF;
+      --border-light: #E5E7EB;
+      --amber: #F59E0B;
+      --amber-light: #FEF3C7;
+      --amber-dark: #D97706;
+      --green: #10B981;
+      --green-light: #D1FAE5;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 10pt;
+      line-height: 1.45;
+      color: var(--text-primary);
+      background: white;
+    }
+    
+    .page {
+      width: 8.5in;
+      height: 11in;
+      padding: 0.4in 0.5in 0.45in 0.5in;
+      position: relative;
+      page-break-after: always;
+      overflow: hidden;
+    }
+    
+    .page:last-child { page-break-after: avoid; }
+    
+    /* === HEADER === */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--purple-primary);
+      margin-bottom: 14px;
+    }
+    
+    .header-left {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--purple-primary);
+      letter-spacing: 1.5px;
+    }
+    
+    .header-right {
+      font-size: 8pt;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    
+    /* === HERO === */
+    .hero {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    
+    .candidate-name {
+      font-size: 26pt;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: var(--text-primary);
+    }
+    
+    .candidate-role {
+      font-size: 12pt;
+      color: var(--purple-primary);
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    
+    .candidate-meta {
+      font-size: 10pt;
+      color: var(--text-muted);
+    }
+    
+    /* === CANDIDATE BOTTOM LINE === */
+    .bottom-line-section {
+      margin-bottom: 14px;
+    }
+    
+    .bottom-line-header {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    
+    .bottom-line-box {
+      background: var(--purple-light);
+      border-left: 4px solid var(--purple-primary);
+      border-radius: 6px;
+      padding: 12px 16px;
+    }
+    
+    .bottom-line-text {
+      font-size: 9.5pt;
+      color: var(--text-primary);
+      line-height: 1.45;
+      font-style: italic;
+    }
+    
+    /* === VERDICT === */
+    .verdict-section {
+      margin-bottom: 14px;
+    }
+    
+    .verdict-box {
+      background: var(--purple-primary);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    
+    .verdict-title {
+      font-size: 14pt;
+      font-weight: 600;
+    }
+    
+    /* === SIGNAL SECTION === */
+    .signal-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--bg-card);
+      border-radius: 6px;
+      padding: 10px 16px;
+      margin-bottom: 14px;
+    }
+    
+    .signal-label-main {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    
+    .signal-bars {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+
+    .signal-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .signal-item-label {
+      font-size: 9pt;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .signal-value {
+      font-size: 10pt;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .signal-sep {
+      color: var(--border-light);
+      font-size: 9pt;
+    }
+    
+    .signal-meta {
+      font-size: 9pt;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    
+    /* === SCREEN DOTS INDICATOR === */
+    .screen-dots {
+      color: var(--purple-primary);
+      font-size: 8pt;
+      margin-left: 4px;
+    }
+    
+    /* === BEHAVIORAL EVIDENCE === */
+    .behavioral-section {
+      margin-bottom: 14px;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--purple-primary);
+    }
+    
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .section-subtitle {
+      font-size: 8pt;
+      color: var(--text-muted);
+    }
+    
+    .behavioral-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    
+    .behavioral-item {
+      padding-left: 12px;
+      border-left: 3px solid var(--purple-light);
+    }
+    
+    .behavioral-item-title {
+      font-weight: 700;
+      font-size: 10pt;
+      color: var(--purple-primary);
+      margin-bottom: 3px;
+    }
+    
+    .behavioral-quote {
+      font-size: 9pt;
+      font-style: italic;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+      line-height: 1.35;
+    }
+    
+    .behavioral-description {
+      font-size: 9pt;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+      line-height: 1.35;
+    }
+    
+    .behavioral-citation {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+    
+    /* === QUESTIONS === */
+    .questions-section {
+      margin-bottom: 0;
+    }
+    
+    .questions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+    
+    .question {
+      padding-left: 12px;
+      border-left: 2px solid var(--purple-light);
+    }
+    
+    .question-topic {
+      color: var(--purple-primary);
+      font-weight: 700;
+      font-size: 9.5pt;
+      margin-bottom: 3px;
+    }
+    
+    .question-rationale {
+      font-size: 8pt;
+      line-height: 1.3;
+      color: var(--text-muted);
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+    
+    /* === PAGE 2: TRADE-OFFS === */
+    .tradeoffs-section {
+      margin-bottom: 24px;
+    }
+    
+    .tradeoffs-header {
+      font-size: 12pt;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--purple-primary);
+    }
+    
+    .tradeoffs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    
+    .tradeoff-card {
+      background: var(--bg-card);
+      padding: 12px 14px;
+      padding-left: 12px;
+      border-left: 3px solid var(--purple-light);
+      min-height: 70px;
+    }
+    
+    .tradeoff-need {
+      font-weight: 700;
+      font-size: 10pt;
+      color: var(--text-primary);
+      margin-bottom: 5px;
+    }
+    
+    .tradeoff-verdict {
+      font-size: 10pt;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .tradeoff-verdict.strong { color: var(--green); }
+    .tradeoff-verdict.verify { color: var(--amber-dark); }
+    .tradeoff-verdict.gap { color: #EA580C; }
+    
+    .tradeoff-reason {
+      font-size: 9pt;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    
+    /* === CULTURE ALIGNMENT === */
+    .stack-section {
+      margin-top: 24px;
+    }
+
+    .stack-header {
+      font-size: 12pt;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--purple-primary);
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .stack-column {
+      background: var(--bg-card);
+      border-radius: 6px;
+      padding: 16px 16px;
+    }
+
+    .stack-column-header {
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .stack-column.match .stack-column-header { color: var(--green); }
+    .stack-column.mismatch .stack-column-header { color: #DC2626; }
+    .stack-column.unknown .stack-column-header { color: var(--text-muted); }
+
+    .stack-item {
+      font-size: 10pt;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .stack-item:last-child { border-bottom: none; }
+
+    .stack-item-name {
+      font-weight: 600;
+      font-size: 10pt;
+      color: var(--text-primary);
+    }
+
+    .stack-item-note {
+      font-size: 9pt;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.35;
+    }
+
+    .stack-empty {
+      font-size: 9.5pt;
+      color: var(--text-light);
+      font-style: italic;
+    }
+    
+    /* === FOOTER === */
+    .footer {
+      position: absolute;
+      bottom: 0.35in;
+      left: 0.5in;
+      right: 0.5in;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: var(--text-muted);
+      padding-top: 8px;
+      border-top: 1px solid var(--border-light);
+    }
+    
+    .footer-brand { color: var(--purple-primary); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <!-- ==================== PAGE 1 ==================== -->
+  <div class="page">
+    <div class="header">
+      <div class="header-left">RESUME:DECODED</div>
+      <div class="header-right">Careerspan × {{partner}} · {{company}} · {{date}}</div>
+    </div>
+    
+    <!-- HERO -->
+    <div class="hero">
+      <div class="candidate-name">{{candidate_name}}</div>
+      <div class="candidate-role">{{role}}</div>
+      <div class="candidate-meta">{{tenure_summary}} · {{screens_count}} Careerspan screen{{#if (gt screens_count 1)}}s{{/if}}</div>
+    </div>
+    
+    <!-- CANDIDATE BOTTOM LINE -->
+    <div class="bottom-line-section">
+      <div class="bottom-line-header">📋 Candidate Bottom Line</div>
+      <div class="bottom-line-box">
+        <div class="bottom-line-text">{{verdict_summary}}</div>
+      </div>
+    </div>
+    
+    <!-- VERDICT -->
+    <div class="verdict-section">
+      <div class="verdict-box">
+        <div class="verdict-title">{{verdict_emoji}} {{verdict}} — {{confidence_score}}/100</div>
+      </div>
+    </div>
+    
+    <!-- ALIGNMENT SIGNAL -->
+    <div class="signal-section">
+      <div class="signal-label-main">📊 ALIGNMENT SIGNAL</div>
+      <div class="signal-bars">
+        <div class="signal-item">
+          <span class="signal-item-label">Screen-verified</span>
+          <span class="signal-value">{{signal_story}}%</span>
+        </div>
+        <span class="signal-sep">·</span>
+        <div class="signal-item">
+          <span class="signal-item-label">Resume-only</span>
+          <span class="signal-value">{{signal_resume}}%</span>
+        </div>
+        {{#if signal_inferred}}
+        <span class="signal-sep">·</span>
+        <div class="signal-item">
+          <span class="signal-item-label">Newly inferred</span>
+          <span class="signal-value">{{signal_inferred}}%</span>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+    
+    <!-- BEHAVIORAL EVIDENCE -->
+    <div class="behavioral-section">
+      <div class="section-header">
+        <span class="section-title">🔍 What We Learned</span>
+        <span class="section-subtitle">— Behavioral signals we uncovered through Careerspan screens</span>
+      </div>
+      
+      <div class="behavioral-grid">
+        {{#each behavioral_signals}}
+        <div class="behavioral-item">
+          <div class="behavioral-item-title">{{title}}</div>
+          {{#if quote}}
+          <div class="behavioral-quote">"{{quote}}"</div>
+          {{else}}
+          <div class="behavioral-description">{{description}}</div>
+          {{/if}}
+          <div class="behavioral-citation">— {{citation}}</div>
+        </div>
+        {{/each}}
+        {{#unless behavioral_signals}}
+        <div class="behavioral-item">
+          <div class="behavioral-item-title">Screen Data Available</div>
+          <div class="behavioral-description">Review detailed assessments in the full Careerspan brief for behavioral evidence.</div>
+          <div class="behavioral-citation">— See scores_complete.json</div>
+        </div>
+        {{/unless}}
+      </div>
+    </div>
+    
+    <!-- QUESTIONS -->
+    <div class="questions-section">
+      <div class="section-header">
+        <span class="section-title">❓ Areas to Explore</span>
+        <span class="section-subtitle">— Why we flagged these and why they matter for this role</span>
+      </div>
+
+      <div class="questions-grid">
+        {{#each questions_all limit=6}}
+        <div class="question">
+          <div class="question-topic">{{topic}}</div>
+          <div class="question-rationale">{{rationale}}</div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    
+    <div class="footer">
+      <span>Resume:Decoded by <span class="footer-brand">Careerspan</span> × {{partner}}</span>
+      <span>1</span>
+    </div>
+  </div>
+  
+  <!-- ==================== PAGE 2 ==================== -->
+  <div class="page">
+    <div class="header">
+      <div class="header-left">RESUME:DECODED</div>
+      <div class="header-right">Careerspan × {{partner}} · {{company}} · {{date}}</div>
+    </div>
+    
+    <!-- TRADE-OFFS -->
+    <div class="tradeoffs-section">
+      <div class="section-header">
+        <span class="section-title">↔ Your Priorities → Fit</span>
+        <span class="section-subtitle">— How candidate maps to role requirements</span>
+      </div>
+      
+      <div class="tradeoffs-grid">
+        {{#each tradeoffs}}
+        <div class="tradeoff-card">
+          <div class="tradeoff-need">{{need}}</div>
+          <div class="tradeoff-verdict {{verdict_class}}">{{verdict}}</div>
+          <div class="tradeoff-reason">{{reason}}</div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    
+    <!-- CULTURE ALIGNMENT SIGNALS -->
+    <div class="stack-section">
+      <div class="section-header">
+        <span class="section-title">🎯 Culture Alignment Signals</span>
+        <span class="section-subtitle">— Fit with company values and working style</span>
+      </div>
+      
+      <div class="stack-grid">
+        <div class="stack-column match">
+          <div class="stack-column-header">✓ Strong Fit</div>
+          {{#each culture_match}}
+          <div class="stack-item">
+            <div class="stack-item-name">{{name}}</div>
+            {{#if note}}<div class="stack-item-note">{{note}}</div>{{/if}}
+          </div>
+          {{/each}}
+          {{#unless culture_match.length}}<div class="stack-empty">None identified</div>{{/unless}}
+        </div>
+        
+        <div class="stack-column mismatch">
+          <div class="stack-column-header">✗ Concerns</div>
+          {{#each culture_mismatch}}
+          <div class="stack-item">
+            <div class="stack-item-name">{{name}}</div>
+            {{#if note}}<div class="stack-item-note">{{note}}</div>{{/if}}
+          </div>
+          {{/each}}
+          {{#unless culture_mismatch.length}}<div class="stack-empty">None identified</div>{{/unless}}
+        </div>
+        
+        <div class="stack-column unknown">
+          <div class="stack-column-header">? Verify</div>
+          {{#each culture_unknown}}
+          <div class="stack-item">
+            <div class="stack-item-name">{{name}}</div>
+            {{#if note}}<div class="stack-item-note">{{note}}</div>{{/if}}
+          </div>
+          {{/each}}
+          {{#unless culture_unknown.length}}<div class="stack-empty">None identified</div>{{/unless}}
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <span>Resume:Decoded by <span class="footer-brand">Careerspan</span> × {{partner}}</span>
+      <span>2</span>
+    </div>
+  </div>
+</body>
+</html>

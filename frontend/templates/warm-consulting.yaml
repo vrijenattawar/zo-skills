@@ -1,0 +1,132 @@
+# Warm Consulting Landing Page Template
+# Professional yet approachable style for B2B services
+
+---
+# TEMPLATE METADATA
+
+name: warm-consulting
+description: |
+  Professional consulting/agency template with warm stone tones and amber accents.
+  Creates trust through restraint while remaining approachable. Ideal for 
+  B2B services, consulting firms, agencies, and professional practices
+  that want to feel established without being cold or corporate.
+
+source: |
+  Captured from GTM consulting landing page generated for Launchpoint.
+  Combines the credibility of minimal-saas with warmer, more human tones
+  that work well for service businesses where relationships matter.
+
+created: 2026-02-06
+
+---
+# COLOR PALETTE
+
+palette:
+  primary: "#1c1917"      # Stone-900 - primary text, key buttons
+  secondary: "#57534e"    # Stone-600 - secondary text, descriptions
+  accent: "#d97706"       # Amber-600 - icons, highlights, stage markers
+  background: "#fafaf9"   # Stone-50 - main page background
+  surface: "#ffffff"      # White - cards, elevated sections
+  text: "#1c1917"         # Stone-900 - body text
+  text_muted: "#a8a29e"   # Stone-400 - subtle text, metadata
+
+---
+# TYPOGRAPHY
+
+typography:
+  heading_font: "system-ui"
+  body_font: "system-ui"
+  scale: normal
+  heading_weight: 600
+
+---
+# LAYOUT SETTINGS
+
+layout:
+  max_width: standard     # max-w-5xl (1024px)
+  spacing: balanced       # Generous but not excessive
+  border_radius: subtle   # rounded-md (6px) for buttons, rounded-lg (8px) for cards
+
+---
+# PAGE SECTIONS
+
+sections:
+  - type: nav
+    variant: fixed-minimal   # Fixed position, clean, CTA button
+  
+  - type: hero
+    variant: left-aligned    # Left-aligned text with badge, asymmetric
+  
+  - type: social-proof
+    variant: stats-bar       # Horizontal bar with key metrics
+  
+  - type: features
+    variant: grid-2x2        # 2-column grid with cards
+  
+  - type: process
+    variant: timeline-3step  # Horizontal timeline with week markers
+  
+  - type: cta
+    variant: centered        # Simple centered CTA
+  
+  - type: footer
+    variant: minimal         # Just copyright and location
+
+---
+# STYLE NOTES
+
+style_notes: |
+  Warm, professional aesthetic that balances credibility with approachability.
+  Key characteristics:
+  
+  **Color philosophy:**
+  - Stone palette creates warmth without feeling dated
+  - Amber accent adds energy and draws attention to key elements
+  - White surfaces for cards create visual hierarchy against stone background
+  - Avoid pure black (#000) - use stone-900 instead
+  
+  **Typography treatment:**
+  - Tight tracking on headlines (-0.025em via tracking-tight)
+  - Relaxed line-height on body text (leading-relaxed)
+  - Headlines are semibold (600), never bold
+  - Secondary text uses stone-600, never pure gray
+  
+  **Card and container patterns:**
+  - Cards have subtle borders (border-stone-200)
+  - Hover states darken borders slightly (hover:border-stone-300)
+  - No drop shadows on cards - borders create definition
+  - Padding is generous (p-8 on service cards)
+  
+  **Icon treatment:**
+  - Icons use amber-600 color for warmth
+  - Size w-8 h-8 for feature cards
+  - Lucide icons with default stroke width
+  
+  **Button styles:**
+  - Primary: bg-stone-900, white text, rounded-md
+  - Hover: bg-stone-800 (slightly lighter)
+  - Include ArrowRight icon for primary CTAs
+  - Secondary/link: text only with hover state
+  
+  **Badge pattern (hero):**
+  - Pill-shaped with bg-amber-100
+  - Small dot indicator (w-2 h-2 rounded-full)
+  - Text in amber-800
+  
+  **Spacing philosophy:**
+  - Generous vertical padding on sections (py-24)
+  - Consistent horizontal padding (px-6)
+  - Gap-6 between cards in grids
+  - Gap-4 between buttons in button groups
+  
+  **Process/timeline section:**
+  - Week markers in amber-600, small and semibold
+  - Three-column grid on desktop
+  - Each step: marker → title → description
+  
+  **Overall emotional tone:**
+  Professional but not cold. The warm colors and generous spacing suggest
+  a firm that takes its time and cares about quality. The restraint in
+  design implies confidence - they don't need flashy visuals to prove
+  their worth. Suitable for consulting, agencies, professional services
+  where trust and expertise matter more than excitement.

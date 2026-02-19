@@ -1,0 +1,241 @@
+{
+  "candidate_name": "Hardik",
+  "role": "Founding Engineer (Fullstack)",
+  "partner": "<YOUR_PARTNER>",
+  "company": "Docsum",
+  "date": "Feb 2026",
+  "tenure_summary": "4.7y exp \u00b7 3.5y IC \u00b7 1.2y Lead",
+  "trajectory": "Keysight \u2192 American Express",
+  "verdict_emoji": "\ud83d\udc4d",
+  "verdict": "Take This Meeting",
+  "confidence_score": 85,
+  "verdict_summary": "Strong recommend as a founding full-stack engineer with rare zero-to-one platform experience and immediate impact potential, with manageable ramp on Next.js/PostgreSQL specifics and contract-focused document processing.",
+  "signal_story": 78,
+  "signal_resume": 22,
+  "skills_assessed": 45,
+  "interviews_count": 3,
+  "spikes_up": [
+    {
+      "label": "Own features end-to-end",
+      "story_verified": true,
+      "years": "",
+      "bar_width": 100
+    },
+    {
+      "label": "Build core systems",
+      "story_verified": true,
+      "years": "",
+      "bar_width": 100
+    },
+    {
+      "label": "Proactive problem solving",
+      "story_verified": true,
+      "years": "",
+      "bar_width": 100
+    },
+    {
+      "label": "Self-motivation",
+      "story_verified": true,
+      "years": "",
+      "bar_width": 100
+    },
+    {
+      "label": "Ownership",
+      "story_verified": true,
+      "years": "",
+      "bar_width": 100
+    }
+  ],
+  "spikes_down": [],
+  "dealbreakers": [],
+  "probes": [
+    {
+      "area": "Retention signal",
+      "context": "1.2y average tenure across roles. For a founding role, understanding what drives long-term engagement is critical.",
+      "prompt": "What conditions have kept you at a company longest? What would make you stay 3+ years here?",
+      "signal_type": "inferred"
+    }
+  ],
+  "why_signal": [
+    {
+      "title": "Leading End-to-End Development and Scaling...",
+      "story": "One of first engineers architecting ML SaaS platform from ground up. Designed Dataset Storage \nlayer with versioning, MLOps and Model Storage layers with automated hyperparameter t...",
+      "story_verified": true
+    },
+    {
+      "title": "Solo-led Global Automation of Database Dec...",
+      "story": "Led end-to-end design of automated portal for database usage optimization. Solo product leader \nresponsible for architecture, Python/Couchbase data aggregation, Java/Spring Boot ba...",
+      "story_verified": true
+    },
+    {
+      "title": "Architecting a vendor-agnostic AI/ML platf...",
+      "story": "Led end-to-end architecture of AI/ML platform with vendor-agnostic, open-source philosophy. \nBuilt dataset storage with MinIO, model management with MLflow, execution layer with Ku...",
+      "story_verified": true
+    }
+  ],
+  "behavioral_signals": [
+    {
+      "title": "Zero-To-One Building",
+      "description": "Demonstrated in: Leading End-to-End Development and Scaling of a High-Im...",
+      "quote": "One of first engineers architecting ML SaaS platform from ground up",
+      "citation": "Keysight, Senior Machine Learning Engineer (R&D)"
+    },
+    {
+      "title": "End-To-End Ownership",
+      "description": "Demonstrated in: Solo-led Global Automation of Database Decommissioning ...",
+      "quote": "Solo product leader responsible for architecture, Python/Couchbase data aggregation, Java/Spring Boot backend, ReactJS U",
+      "citation": "American Express, Software Engineer (Full Stack)"
+    },
+    {
+      "title": "Scaling Mindset",
+      "description": "Demonstrated in: Solo-led Global Automation of Database Decommissioning ...",
+      "quote": "Automated tracking and decommissioning of underutilized databases across 150+ services, supporting 2,000-3,000 engineers",
+      "citation": "American Express, Software Engineer (Full Stack)"
+    },
+    {
+      "title": "Stakeholder-Driven Design",
+      "description": "Demonstrated in: Architecting a vendor-agnostic AI/ML platform through s...",
+      "quote": "Guided by stakeholder feedback from internal teams and external clients (Apple, Samsung)",
+      "citation": "Keysight, Senior Machine Learning Engineer (R&D)"
+    }
+  ],
+  "questions_evidence": [
+    {
+      "topic": "End-to-end ownership under pressure",
+      "question": "Tell me about a feature you owned that hit unexpected complexity mid-build. How did you navigate the trade-offs between shipping on time and doing it right?",
+      "verifies": "Judgment under pressure, ability to re-scope without losing quality"
+    },
+    {
+      "topic": "Technical decision reversals",
+      "question": "Tell me about a technical decision you made that you later realized was wrong. How did you discover it, and what did unwinding it look like?",
+      "verifies": "Intellectual humility, ability to course-correct, cost of reversibility thinking"
+    }
+  ],
+  "questions_verify": [
+    {
+      "topic": "Collaboration with non-technical stakeholders",
+      "question": "What's your experience translating technical constraints into business terms when a founder or customer pushes back on a timeline or approach?",
+      "verifies": "Communication skills, stakeholder management, influence without authority"
+    },
+    {
+      "topic": "Building for others to inherit",
+      "question": "When you've built core systems, how have you thought about making them understandable to engineers who join after you? Walk me through a specific example.",
+      "verifies": "Documentation discipline, team scaling mindset, ego vs. maintainability"
+    },
+    {
+      "topic": "Ambiguity and incomplete requirements",
+      "question": "Tell me about a time you had to build something with unclear or shifting requirements. How did you decide when to push for clarity vs. when to just start building?",
+      "verifies": "Comfort with ambiguity, judgment on when to act vs. gather information"
+    }
+  ],
+  "questions_all": [
+    {
+      "topic": "End-to-end ownership under pressure",
+      "question": "Tell me about a feature you owned that hit unexpected complexity mid-build. How did you navigate the trade-offs between shipping on time and doing it right?",
+      "verifies_label": "Confirms: Judgment under pressure, ability to re-scope without losing quality"
+    },
+    {
+      "topic": "Technical decision reversals",
+      "question": "Tell me about a technical decision you made that you later realized was wrong. How did you discover it, and what did unwinding it look like?",
+      "verifies_label": "Confirms: Intellectual humility, ability to course-correct, cost of reversibility thinking"
+    },
+    {
+      "topic": "Collaboration with non-technical stakeholders",
+      "question": "What's your experience translating technical constraints into business terms when a founder or customer pushes back on a timeline or approach?",
+      "verifies_label": "Verifies: Communication skills, stakeholder management, influence without authority"
+    },
+    {
+      "topic": "Building for others to inherit",
+      "question": "When you've built core systems, how have you thought about making them understandable to engineers who join after you? Walk me through a specific example.",
+      "verifies_label": "Verifies: Documentation discipline, team scaling mindset, ego vs. maintainability"
+    },
+    {
+      "topic": "Ambiguity and incomplete requirements",
+      "question": "Tell me about a time you had to build something with unclear or shifting requirements. How did you decide when to push for clarity vs. when to just start building?",
+      "verifies_label": "Verifies: Comfort with ambiguity, judgment on when to act vs. gather information"
+    }
+  ],
+  "tradeoffs": [
+    {
+      "need": "Own features end-to-end",
+      "verdict": "Strong fit",
+      "reason": "Demonstrated full-stack ownership from concept to deployment",
+      "verdict_class": "strong"
+    },
+    {
+      "need": "Build core systems",
+      "verdict": "Strong fit",
+      "reason": "Evidence of building foundational infrastructure and architecture",
+      "verdict_class": "strong"
+    },
+    {
+      "need": "Tech stack alignment (Next.js, FastAPI, PostgreSQL)",
+      "verdict": "Verify in meeting",
+      "reason": "85 score suggests solid but not exact stack match\u2014probe depth on specific technologies",
+      "verdict_class": "verify"
+    },
+    {
+      "need": "Make technical decisions autonomously",
+      "verdict": "Strong fit",
+      "reason": "Track record of architectural decisions and technical leadership",
+      "verdict_class": "strong"
+    },
+    {
+      "need": "Contribute to company direction",
+      "verdict": "Verify in meeting",
+      "reason": "Strategic input hard to assess from resume\u2014explore examples of product/business influence",
+      "verdict_class": "verify"
+    },
+    {
+      "need": "AWS production scale experience",
+      "verdict": "More signal needed",
+      "reason": "Prototyping strength clear; less signal on operating systems at scale in production",
+      "verdict_class": "gap"
+    }
+  ],
+  "culture_match": [
+    {
+      "name": "Own features end-to-end",
+      "note": "Story-verified"
+    },
+    {
+      "name": "Build core systems",
+      "note": "Story-verified"
+    },
+    {
+      "name": "Make technical decisions",
+      "note": "Story-verified"
+    },
+    {
+      "name": "Contribute to company direction",
+      "note": "Story-verified"
+    },
+    {
+      "name": "Prototype Rapidly",
+      "note": "Story-verified"
+    }
+  ],
+  "culture_mismatch": [],
+  "culture_unknown": [
+    {
+      "name": "Document work clearly",
+      "note": "Resume signal only"
+    },
+    {
+      "name": "Support Onboarding",
+      "note": "Resume signal only"
+    },
+    {
+      "name": "Technical documentation",
+      "note": "Resume signal only"
+    },
+    {
+      "name": "Next.js",
+      "note": "Resume signal only"
+    },
+    {
+      "name": "PostgreSQL",
+      "note": "Resume signal only"
+    }
+  ]
+}

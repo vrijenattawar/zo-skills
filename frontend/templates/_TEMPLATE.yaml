@@ -1,0 +1,191 @@
+# Frontend Template Schema Specification
+# This file defines the YAML schema for frontend templates.
+# Use this as a reference when creating new templates.
+
+---
+# TEMPLATE METADATA
+# Basic information about the template
+
+name: template-slug  # REQUIRED: lowercase, hyphens only (e.g., "clean-saas", "bold-agency")
+description: |  # REQUIRED: Multi-line description
+  What this template is good for and when to use it.
+  Be specific about the target audience, use case, and aesthetic.
+  Examples:
+  - "Clean, professional SaaS landing pages with subtle shadows and ample whitespace"
+  - "Bold, vibrant agency portfolio with large typography and dynamic layouts"
+
+source: |  # REQUIRED: Attribution and context
+  URL of the original page this template was derived from, or description of inspiration.
+  Examples:
+  - "https://example.com/inspiration-page"
+  - "Inspired by modern fintech apps, synthesized from Stripe, Plaid, and Mercury"
+
+created: YYYY-MM-DD  # REQUIRED: Creation date in ISO format
+
+---
+# COLOR PALETTE
+# All colors are REQUIRED. Use hex values (#000000 format).
+# This palette should work harmoniously across all sections.
+
+palette:
+  primary: "#hex"      # Main brand color - used for primary CTAs, headers, key elements
+  secondary: "#hex"    # Supporting color - used for secondary elements, subtle highlights  
+  accent: "#hex"       # Accent color - used for highlights, CTAs, interactive elements
+  background: "#hex"   # Page background - usually white (#ffffff) or dark (#0a0a0a)
+  surface: "#hex"      # Card/section backgrounds - slightly different from background
+  text: "#hex"         # Primary text color - high contrast with background
+  text_muted: "#hex"   # Secondary text color - lower contrast for supporting text
+
+# Color Usage Guidelines:
+# - Ensure WCAG AA contrast ratios (4.5:1) between text and background colors
+# - Primary should be distinctive and memorable
+# - Secondary complements primary without competing
+# - Accent should pop for calls-to-action
+# - Surface provides subtle layering over background
+
+---
+# TYPOGRAPHY
+# Font selection and hierarchy settings
+
+typography:
+  heading_font: "Font Name"  # REQUIRED: Google Fonts name or system font
+    # Examples: "Inter", "Poppins", "SF Pro Display", "system-ui"
+  body_font: "Font Name"     # REQUIRED: Google Fonts name or system font  
+    # Examples: "Inter", "Source Sans Pro", "SF Pro Text", "system-ui"
+  mono_font: "Font Name"     # OPTIONAL: For code blocks, technical content
+    # Examples: "JetBrains Mono", "Fira Code", "SF Mono", "monospace"
+
+  scale: tight | normal | loose  # REQUIRED: Overall typographic spacing
+    # tight: Compact spacing, dense layouts (1.2-1.4 line height)
+    # normal: Balanced spacing, most use cases (1.4-1.6 line height)  
+    # loose: Airy spacing, premium feel (1.6-1.8 line height)
+
+  heading_weight: 400-900    # REQUIRED: Font weight for headings (400, 500, 600, 700, etc.)
+
+---
+# LAYOUT SETTINGS
+# Overall page structure and spacing
+
+layout:
+  max_width: narrow | standard | wide | full  # REQUIRED: Content container width
+    # narrow: 768px - single column, blog-style content
+    # standard: 1024px - balanced for most use cases
+    # wide: 1280px - dashboard-style, more horizontal content
+    # full: 100% - edge-to-edge, hero sections
+
+  spacing: compact | balanced | airy  # REQUIRED: Section spacing rhythm
+    # compact: 1-2rem between sections, tight layouts
+    # balanced: 3-4rem between sections, most use cases
+    # airy: 5-6rem between sections, premium/luxury feel
+
+  border_radius: none | subtle | rounded | pill  # REQUIRED: Corner rounding style
+    # none: 0 - sharp, technical, modern
+    # subtle: 4px - minimal softness
+    # rounded: 8-12px - friendly, approachable
+    # pill: 9999px - fully rounded buttons/elements
+
+---
+# PAGE SECTIONS
+# Ordered list of sections that make up the page structure.
+# This defines the template's information architecture.
+
+sections:  # REQUIRED: Array of section objects
+  - type: hero           # REQUIRED: Section type (see valid types below)
+    variant: default     # OPTIONAL: Specific variant of the section type
+  
+  - type: features
+    variant: grid-3col
+  
+  - type: testimonials  
+    variant: carousel
+  
+  - type: pricing
+    variant: cards
+  
+  - type: cta
+    variant: centered
+
+# Valid Section Types:
+# - hero: Main banner/header section with headline and CTA
+# - features: Product/service features showcase  
+# - testimonials: Customer testimonials and reviews
+# - pricing: Pricing tables or plans
+# - cta: Call-to-action sections
+# - faq: Frequently asked questions
+# - stats: Numbers, metrics, achievements
+# - team: Team member profiles
+# - logos: Client/partner logo grids
+# - content: Generic content blocks
+
+# Common Variants (by type):
+# hero: default, centered, split, minimal, bold
+# features: grid-2col, grid-3col, grid-4col, list, alternating
+# testimonials: grid, carousel, single, wall
+# pricing: cards, table, simple, comparison
+# cta: centered, banner, inline, bottom
+
+---
+# STYLE NOTES
+# Freeform description to capture nuances that structured fields can't express.
+# This is critical for maintaining design integrity.
+
+style_notes: |  # REQUIRED: Multi-line text
+  Describe the overall aesthetic feel and distinctive characteristics:
+  
+  - Visual style (minimal, bold, playful, corporate, etc.)
+  - Shadow usage (subtle, pronounced, none)
+  - Border treatments (clean lines, rounded, none)
+  - Gradient usage (subtle, bold, none)
+  - Animation/interaction style (smooth, snappy, minimal)
+  - Unique design elements that define this template
+  - Content density preferences (spacious, balanced, compact)
+  - Any specific design patterns or techniques used
+  
+  Examples:
+  "Clean, minimal aesthetic with subtle shadows and plenty of whitespace. 
+   Uses gradient overlays on hero images. Rounded corners throughout.
+   Emphasizes horizontal layouts and grid-based organization."
+
+---
+# REFERENCE IMAGES (Optional)
+# Visual references to help maintain design consistency
+
+reference_images:  # OPTIONAL: Array of image references
+  - path: /path/to/reference1.png    # Relative path to image file
+    description: Screenshot of the original inspiration page
+  
+  - path: /path/to/reference2.png
+    description: Color palette and typography samples
+
+---
+# CUSTOM FIELDS (Optional)
+# Template-specific overrides and extensions for unique requirements
+
+custom:  # OPTIONAL: Flexible key-value pairs
+  # Add any template-specific configuration that doesn't fit standard schema
+  # Examples:
+  # animation_style: "smooth"
+  # content_density: "high" 
+  # interaction_pattern: "hover-lift"
+  # special_sections: ["newsletter-signup", "social-proof"]
+  
+# Usage Notes:
+# - Keep custom fields minimal - prefer standard schema when possible
+# - Use custom fields for genuinely unique template characteristics
+# - Document custom field meanings in comments
+
+---
+# SCHEMA VALIDATION NOTES
+# 
+# Required Fields: name, description, source, created, palette (all 7 colors), 
+#                 typography (heading_font, body_font, scale, heading_weight),
+#                 layout (max_width, spacing, border_radius), sections, style_notes
+#
+# Optional Fields: mono_font, section variants, reference_images, custom
+#
+# Color Format: All colors must be valid hex values (#000000 format)
+# Date Format: created must be YYYY-MM-DD
+# Enum Values: Must match exactly (case-sensitive)
+#
+# This schema balances structure with flexibility - use style_notes and custom 
+# fields to capture nuances that don't fit the structured fields.

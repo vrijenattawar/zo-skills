@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rapid Context Extractor"
+  short_description: "Chronological extraction + learning loop"
+  default_prompt: "Analyze this source with my seed context, distill key points in order, then run an engagement loop."

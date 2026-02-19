@@ -1,0 +1,245 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "<YOUR_PRODUCT> Scores Complete Schema",
+  "description": "Canonical schema for scores_complete.json outputs (v2.0 - aligned with web Intelligence Brief format)",
+  "type": "object",
+  "required": [
+    "overall_score",
+    "bottom_line",
+    "category_scores",
+    "signal_strength",
+    "skills"
+  ],
+  "properties": {
+    "overall_score": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Overall <YOUR_PRODUCT> score (0-100)"
+    },
+    "bottom_line": {
+      "type": "string",
+      "description": "Single sentence verdict (e.g., 'Strong, user-obsessed PM with proven, metric-backed delivery...')"
+    },
+    "qualification": {
+      "type": ["string", "null"],
+      "description": "Alignment assessment (e.g., 'Well-aligned', 'Partially aligned')"
+    },
+    "qualification_detail": {
+      "type": ["string", "null"],
+      "description": "Additional qualification context (e.g., 'Atypical Background', 'Industry Shift')"
+    },
+    "career_trajectory": {
+      "type": ["string", "null"],
+      "description": "Career movement type (e.g., 'Industry Shift', 'Lateral Move', 'Step Up')"
+    },
+    "overall_strengths": {
+      "type": ["string", "null"],
+      "description": "Summary of candidate's key strengths"
+    },
+    "overall_weaknesses": {
+      "type": ["string", "null"],
+      "description": "Summary of candidate's key weaknesses or gaps"
+    },
+    "potential_dealbreakers": {
+      "type": "array",
+      "description": "List of potential dealbreaker questions/concerns",
+      "items": {
+        "type": "string"
+      }
+    },
+    "category_scores": {
+      "type": "object",
+      "description": "Breakdown scores by category (scale: 0-100)",
+      "required": ["background", "uniqueness", "responsibilities", "hard_skills", "soft_skills"],
+      "properties": {
+        "background": {
+          "type": "object",
+          "properties": {
+            "score": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+            "max": {"type": "integer", "default": 100}
+          }
+        },
+        "uniqueness": {
+          "type": "object",
+          "properties": {
+            "score": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+            "max": {"type": "integer", "default": 100}
+          }
+        },
+        "responsibilities": {
+          "type": "object",
+          "properties": {
+            "score": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+            "max": {"type": "integer", "default": 100}
+          }
+        },
+        "hard_skills": {
+          "type": "object",
+          "properties": {
+            "score": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+            "max": {"type": "integer", "default": 100}
+          }
+        },
+        "soft_skills": {
+          "type": "object",
+          "properties": {
+            "score": {"type": ["integer", "null"], "minimum": 0, "maximum": 100},
+            "max": {"type": "integer", "default": 100}
+          }
+        }
+      }
+    },
+    "signal_strength": {
+      "type": "object",
+      "description": "Breakdown of evidence types across all skills",
+      "properties": {
+        "story_verified_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage of skills with story-verified evidence"
+        },
+        "resume_only_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage of skills with resume/profile-only evidence"
+        },
+        "inferred_pct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage of skills inferred from context"
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "skill_name",
+          "category",
+          "our_take"
+        ],
+        "properties": {
+          "skill_name": {
+            "type": "string",
+            "description": "Exact skill name from document"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["Responsibility", "Hard Skill", "Soft Skill"],
+            "description": "Skill category"
+          },
+          "rating": {
+            "type": ["string", "null"],
+            "enum": ["Excellent", "Good", "Fair", "Gap", null],
+            "description": "Candidate's rating for this skill"
+          },
+          "required_level": {
+            "type": ["string", "null"],
+            "description": "Required proficiency level (e.g., 'Advanced', 'Intermediate', 'Novice')"
+          },
+          "required_score": {
+            "type": ["integer", "null"],
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Required score (1-5) - legacy field"
+          },
+          "max_score": {
+            "type": ["integer", "null"],
+            "description": "Maximum score (typically 5) - legacy field"
+          },
+          "importance": {
+            "type": ["integer", "null"],
+            "minimum": 1,
+            "maximum": 10,
+            "description": "How critical this skill is for the role (1-10)"
+          },
+          "max_importance": {
+            "type": ["integer", "null"],
+            "description": "Maximum importance (typically 10)"
+          },
+          "direct_experience_score": {
+            "type": ["integer", "null"],
+            "minimum": 1,
+            "maximum": 10,
+            "description": "Direct experience score (1-10) from 'Direct experience: X/10'"
+          },
+          "max_experience_score": {
+            "type": ["integer", "null"],
+            "description": "Maximum experience score (typically 10)"
+          },
+          "experience_type": {
+            "type": ["string", "null"],
+            "enum": ["Direct", "Transferable", "Transferrable", null],
+            "description": "Type of experience evidence"
+          },
+          "evidence_type": {
+            "type": ["string", "null"],
+            "enum": ["Story+profile", "Story + profile", "Story", "Profile", "Resume", "Gap", null],
+            "description": "Source of evidence for this skill assessment"
+          },
+          "our_take": {
+            "type": "string",
+            "description": "Full <YOUR_PRODUCT> assessment text (verbatim, do not summarize)"
+          },
+          "contributing_skills": {
+            "type": "array",
+            "description": "Skills that contribute to this assessment",
+            "items": {
+              "type": "string"
+            }
+          },
+          "support": {
+            "type": "array",
+            "description": "Evidence sources with story IDs",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": ["string", "null"],
+                  "description": "Story ID or source reference (e.g., 'o94wesBFvqnIgr9l5YVz')"
+                },
+                "type": {
+                  "type": ["string", "null"],
+                  "enum": ["Direct", "Transferable", "Transferrable", null],
+                  "description": "Evidence type"
+                },
+                "score": {
+                  "type": ["string", "null"],
+                  "description": "Evidence score (e.g., '9/10')"
+                },
+                "rating": {
+                  "type": ["string", "null"],
+                  "enum": ["Excellent", "Good", "Fair", "Gap", null],
+                  "description": "Evidence rating"
+                },
+                "is_best": {
+                  "type": ["boolean", "null"],
+                  "description": "Whether this is marked as the 'Best' supporting evidence"
+                }
+              }
+            }
+          },
+          "support_note": {
+            "type": ["string", "null"],
+            "description": "Note when no strong support found (e.g., 'No strong support found')"
+          },
+          "source_page": {
+            "type": ["string", "null"],
+            "description": "Source page reference for provenance"
+          },
+          "interview_question": {
+            "type": ["string", "null"],
+            "description": "Tailored interview question based on gaps"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

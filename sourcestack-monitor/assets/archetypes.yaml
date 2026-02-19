@@ -1,0 +1,142 @@
+archetypes:
+  backend-engineer:
+    titles:
+      - backend engineer
+      - backend developer
+      - server engineer
+      - API engineer
+      - backend software engineer
+      - systems engineer
+    categories: [Engineering, Software Development]
+
+  frontend-engineer:
+    titles:
+      - frontend engineer
+      - frontend developer
+      - UI engineer
+      - react developer
+      - vue developer
+      - angular developer
+      - frontend software engineer
+    categories: [Engineering, Software Development]
+
+  fullstack-engineer:
+    titles:
+      - full stack engineer
+      - full-stack engineer
+      - fullstack engineer
+      - full stack developer
+      - fullstack developer
+    categories: [Engineering, Software Development]
+
+  founding-engineer:
+    titles:
+      - founding engineer
+      - founding software engineer
+      - founding backend engineer
+      - founding fullstack engineer
+    categories: [Engineering, Software Development]
+
+  staff-engineer:
+    titles:
+      - staff engineer
+      - staff software engineer
+      - principal engineer
+      - principal software engineer
+      - distinguished engineer
+    categories: [Engineering, Software Development]
+
+  sre-platform:
+    titles:
+      - site reliability engineer
+      - SRE
+      - platform engineer
+      - infrastructure engineer
+      - DevOps engineer
+      - cloud engineer
+      - cloud infrastructure engineer
+    categories: [Engineering, Software Development, IT]
+
+  data-engineer:
+    titles:
+      - data engineer
+      - data platform engineer
+      - ETL engineer
+      - analytics engineer
+      - data infrastructure engineer
+    categories: [Engineering, Software Development, Data Science]
+
+  ml-engineer:
+    titles:
+      - machine learning engineer
+      - ML engineer
+      - AI engineer
+      - deep learning engineer
+      - applied ML engineer
+      - NLP engineer
+    categories: [Engineering, Software Development, Data Science]
+
+  mobile-engineer:
+    titles:
+      - mobile engineer
+      - mobile developer
+      - iOS engineer
+      - iOS developer
+      - Android engineer
+      - Android developer
+      - React Native developer
+      - Flutter developer
+    categories: [Engineering, Software Development]
+
+  security-engineer:
+    titles:
+      - security engineer
+      - application security engineer
+      - AppSec engineer
+      - InfoSec engineer
+      - cybersecurity engineer
+      - product security engineer
+    categories: [Engineering, Software Development, IT]
+
+geo_lists:
+  nyc:
+    cities:
+      - New York
+      - Brooklyn
+      - Manhattan
+      - Queens
+      - Bronx
+      - Staten Island
+      - Jersey City
+      - Hoboken
+      - Newark
+    country: United States
+
+  us-remote:
+    country: United States
+    remote: true
+    fallback_cities:
+      - San Francisco
+      - Los Angeles
+      - Seattle
+      - Austin
+      - Chicago
+      - Boston
+      - Denver
+      - Portland
+      - Miami
+      - Atlanta
+      - Washington
+      - Philadelphia
+      - Dallas
+      - San Diego
+      - San Jose
+      - Raleigh
+      - Nashville
+      - Minneapolis
+      - Salt Lake City
+      - Pittsburgh
+
+  intl-remote:
+    remote: true
+    exclude_country: United States
