@@ -1,0 +1,270 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zo.computer/schemas/meeting-manifest-v3",
+  "title": "Meeting Manifest v3",
+  "description": "Schema for meeting ingestion pipeline manifest files. This manifest tracks the complete lifecycle of a meeting from raw transcript ingestion through final archival, providing state management and metadata for the meeting processing pipeline.",
+  "type": "object",
+  "required": ["$schema", "meeting_id", "status", "status_history", "source", "meeting", "participants", "timestamps"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "const": "manifest-v3",
+      "description": "Schema version identifier for manifest v3"
+    },
+    "meeting_id": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}_[A-Za-z0-9_-]+$",
+      "description": "Meeting identifier in format YYYY-MM-DD_Meeting-Name"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["raw", "ingested", "identified", "gated", "processed", "ready"],
+      "description": "Current status in the processing pipeline: raw (initial), ingested (transcript processed), identified (participants found), gated (quality checks passed), processed (blocks generated), ready (archived)"
+    },
+    "status_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["status", "at"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["raw", "ingested", "identified", "gated", "processed", "ready"]
+          },
+          "at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "minItems": 1,
+      "description": "Chronological history of status changes with timestamps"
+    },
+    "source": {
+      "type": "object",
+      "required": ["type", "original_filename", "ingested_at"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["fathom", "fireflies", "gdrive", "manual"],
+          "description": "Source system: fathom (Fathom transcript), fireflies (Fireflies.ai transcript), gdrive (Google Drive upload), manual (manually uploaded)"
+        },
+        "original_filename": {
+          "type": "string"
+        },
+        "ingested_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "meeting": {
+      "type": "object",
+      "required": ["date", "time_utc", "duration_minutes", "title", "type", "summary"],
+      "properties": {
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "time_utc": {
+          "type": "string",
+          "pattern": "^\\d{2}:\\d{2}:\\d{2}$"
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "enum": ["external", "internal"]
+        },
+        "summary": {
+          "type": "string",
+          "description": "One paragraph microsummary generated during ingest"
+        }
+      }
+    },
+    "participants": {
+      "type": "object",
+      "required": ["identified", "unidentified", "confidence"],
+      "properties": {
+        "identified": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "role"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "email": {
+                "type": ["string", "null"],
+                "format": "email"
+              },
+              "crm_id": {
+                "type": ["integer", "null"]
+              },
+              "role": {
+                "type": "string",
+                "enum": ["host", "attendee"]
+              }
+            }
+          }
+        },
+        "unidentified": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "calendar_match": {
+      "type": ["object", "null"],
+      "properties": {
+        "event_id": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "method": {
+          "type": "string",
+          "enum": ["timestamp+title", "title_only", "timestamp_only", "manual"]
+        }
+      }
+    },
+    "quality_gate": {
+      "type": "object",
+      "required": ["passed", "checks", "score"],
+      "description": "Quality gate validation results that determine if meeting is ready for block generation",
+      "properties": {
+        "passed": {
+          "type": "boolean"
+        },
+        "checks": {
+          "type": "object",
+          "required": ["has_transcript", "participants_identified", "meeting_type_determined", "no_hitl_pending"],
+          "properties": {
+            "has_transcript": {
+              "type": "boolean"
+            },
+            "participants_identified": {
+              "type": "boolean"
+            },
+            "meeting_type_determined": {
+              "type": "boolean"
+            },
+            "no_hitl_pending": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "blocks": {
+      "type": "object",
+      "required": ["policy", "requested", "generated", "failed", "skipped"],
+      "properties": {
+        "policy": {
+          "type": "string",
+          "enum": ["external_standard", "internal_standard", "custom"],
+          "description": "Block selection policy: external_standard (standard external meeting blocks), internal_standard (standard internal meeting blocks), custom (manually selected blocks)"
+        },
+        "requested": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(B\\d{2}|S\\d{2}|SI\\d{2})$"
+          }
+        },
+        "generated": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(B\\d{2}|S\\d{2}|SI\\d{2})$"
+          }
+        },
+        "failed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(B\\d{2}|S\\d{2}|SI\\d{2})$"
+          }
+        },
+        "skipped": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(B\\d{2}|S\\d{2}|SI\\d{2})$"
+          }
+        }
+      }
+    },
+    "hitl": {
+      "type": "object",
+      "required": ["queue_id", "reason", "resolved_at"],
+      "properties": {
+        "queue_id": {
+          "type": ["string", "null"]
+        },
+        "reason": {
+          "type": ["string", "null"]
+        },
+        "resolved_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      }
+    },
+    "timestamps": {
+      "type": "object",
+      "required": ["created_at"],
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ingested_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "identified_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "gated_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "processed_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        },
+        "archived_at": {
+          "type": ["string", "null"],
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

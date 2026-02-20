@@ -1,262 +1,160 @@
 {
   "name": "zo-skills",
-  "description": "Zo Computer skills library \u2014 reusable workflows, pipelines, and tools",
-  "author": "vrijenattawar",
+  "description": "Zo Computer skills library",
   "tarball_url": "https://github.com/vrijenattawar/zo-skills/archive/refs/heads/main.tar.gz",
   "archive_root": "zo-skills-main",
-  "updated": "2026-02-19T13:10:18Z",
   "skills": [
     {
       "slug": "agentmail-inbox-firewall",
-      "name": "agentmail-inbox-firewall",
-      "description": "Hardened AgentMail webhook receiver operations for multi-inbox routing, security triage, and service deployment.",
-      "files": 2,
-      "has_scripts": true
+      "description": "Hardened AgentMail webhook receiver operations for multi-inbox routing, security triage, and service deployment."
     },
     {
       "slug": "booking-metadata-calendar",
-      "name": "booking-metadata-calendar",
-      "description": "Parse natural-language booking requests into structured metadata, wire metadata into calendar event payloads, and persist retrievable records keyed by meeting ID.",
-      "files": 6,
-      "has_scripts": true
+      "description": "Parse natural-language booking requests into structured metadata, wire metadata into calendar event payloads, and persist retrievable records keyed by meeting ID."
     },
     {
       "slug": "branded-pdf",
-      "name": "branded-pdf",
-      "description": "Generate clean, professional PDFs with dual-logo headers, customizable styling, and well-spaced typography. Ideal for technical briefs, partnership documents, proposals, and branded memos. Takes markd",
-      "files": 3,
-      "has_scripts": true
+      "description": "Generate clean, professional PDFs with dual-logo headers, customizable styling, and well-spaced typography. Ideal for technical briefs, partnership documents, proposals, and branded memos. Takes ma..."
     },
     {
       "slug": "build-close",
-      "name": "build-close",
-      "description": "Post-build synthesis for Pulse builds. Aggregates all deposits, synthesizes",
-      "files": 2,
-      "has_scripts": true
+      "description": "Post-build synthesis for Pulse builds. Aggregates all deposits, synthesizes decisions and learnings, extracts positions, generates build AAR. Replaces N per-worker closes with 1 build-level close. ..."
     },
     {
       "slug": "careerspan-decomposer",
-      "name": "<YOUR_PRODUCT>-decomposer",
-      "description": "Decomposes <YOUR_PRODUCT> Intelligence Briefs into structured YAML using LLM semantic extraction.",
-      "files": 8,
-      "has_scripts": true
+      "description": "Decomposes <YOUR_PRODUCT> Intelligence Briefs into structured YAML using LLM semantic extraction. Takes raw <YOUR_PRODUCT> doc + JD \u2192 Outputs indexed YAML files to inbox for Meta-Resume generation...."
     },
     {
       "slug": "careerspan_hiring_intel",
-      "name": "<YOUR_PRODUCT>-hiring-intel",
-      "description": "Shared library for <YOUR_PRODUCT> Hiring Intelligence. Contains canonical implementations",
-      "files": 5,
-      "has_scripts": true
+      "description": "Shared library for <YOUR_PRODUCT> Hiring Intelligence. Contains canonical implementations of Hiring POV generation and related employer analysis operations.  Ensures consistent inputs/outputs acros..."
     },
     {
       "slug": "claude-code-window-primer",
-      "name": "claude-code-window-primer",
-      "description": "Optimizes Claude Code Pro/Max usage by priming the 5-hour rolling window early morning, ensuring resets align with peak work hours for maximum Opus availability.",
-      "files": 3,
-      "has_scripts": true
+      "description": "Optimizes Claude Code Pro/Max usage by priming the 5-hour rolling window early morning, ensuring resets align with peak work hours for maximum Opus availability."
     },
     {
       "slug": "close",
-      "name": "close",
-      "description": "Universal close skill. Just say \"close\" and it auto-routes to the right close skill",
-      "files": 2,
-      "has_scripts": true
+      "description": "Universal close skill. Just say \"close\" and it auto-routes to the right close skill (thread-close, drop-close, or build-close) based on SESSION_STATE context."
     },
     {
       "slug": "drop-close",
-      "name": "drop-close",
-      "description": "Close Pulse worker (Drop) threads. Writes structured deposit JSON for",
-      "files": 2,
-      "has_scripts": true
+      "description": "Close Pulse worker (Drop) threads. Writes structured deposit JSON for orchestrator review. Does NOT commit - that's the orchestrator's job. For normal threads use thread-close. For post-build synth..."
     },
     {
       "slug": "fillout-survey-monitor",
-      "name": "fillout-survey-monitor",
-      "description": "Automated monitoring of Fillout survey changes with intelligent refresh triggering. Watches for new submissions and coordinates with dynamic-survey-analyzer to refresh analysis and dashboards. Support",
-      "files": 2,
-      "has_scripts": true
+      "description": "Automated monitoring of Fillout survey changes with intelligent refresh triggering. Watches for new submissions and coordinates with dynamic-survey-analyzer to refresh analysis and dashboards. Supp..."
     },
     {
       "slug": "frontend",
-      "name": "frontend",
-      "description": "Generate high-quality landing pages with anti-slop guardrails and multi-platform support. Creates modern, accessible designs for Zo.space, standalone HTML, and Next.js with professional aesthetics and",
-      "files": 5,
-      "has_scripts": false
+      "description": "Generate high-quality landing pages with anti-slop guardrails and multi-platform support. Creates modern, accessible designs for Zo.space, standalone HTML, and Next.js with professional aesthetics ..."
     },
     {
       "slug": "frontend-design",
-      "name": "frontend-design",
-      "description": "Create distinctive, production-grade frontend interfaces with high design quality.",
-      "files": 1,
-      "has_scripts": false
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when building web components, pages, dashboards, or applications. Generates creative, polished code..."
     },
     {
       "slug": "frontend-design-anthropic",
-      "name": "frontend-design",
-      "description": "Create distinctive, production-grade frontend interfaces with high design",
-      "files": 1,
-      "has_scripts": false
+      "description": "Create distinctive, production-grade frontend interfaces with high design"
     },
     {
       "slug": "ga4-analytics",
-      "name": "ga4-analytics",
-      "description": "Pull Google Analytics 4 traffic stats for V's personal website (<YOUR_GITHUB>.com). Supports overall traffic, specific page tracking (e.g. /mind), breakdowns by source/device/date, and custom date ran",
-      "files": 2,
-      "has_scripts": true
+      "description": "Pull Google Analytics 4 traffic stats for V's personal website (<YOUR_GITHUB>.com). Supports overall traffic, specific page tracking (e.g. /mind), breakdowns by source/device/date, and custom date ..."
     },
     {
       "slug": "gamma",
-      "name": "gamma",
-      "description": "Generate presentations, documents, social posts, and websites using Gamma's AI API. Supports full generation from prompts or creation from existing templates.",
-      "files": 6,
-      "has_scripts": true
+      "description": "Generate presentations, documents, social posts, and websites using Gamma's AI API. Supports full generation from prompts or creation from existing templates."
+    },
+    {
+      "slug": "meeting-ingestion",
+      "description": "Unified skill for ingesting meeting transcripts from Google Drive and orchestrating the processing pipeline (recap, blocks). Replaces legacy MG-1 through MG-6 agent sequence."
     },
     {
       "slug": "meme-factory",
-      "name": "meme-factory",
-      "description": "Generate memes using the memegen.link API. Use when users request memes, want to add humor to content, or need visual aids for social media. Supports 100+ popular templates with custom text and stylin",
-      "files": 4,
-      "has_scripts": true
+      "description": "Generate memes using the memegen.link API. Use when users request memes, want to add humor to content, or need visual aids for social media. Supports 100+ popular templates with custom text and sty..."
     },
     {
       "slug": "mentor-handler",
-      "name": "mentor-handler",
-      "description": "Handle escalation requests from <YOUR_INSTANCE> instances and provide thoughtful mentor guidance based on precedent and context analysis",
-      "files": 2,
-      "has_scripts": true
+      "description": "Handle escalation requests from <YOUR_INSTANCE> instances and provide thoughtful mentor guidance based on precedent and context analysis"
+    },
+    {
+      "slug": "persona-optimization",
+      "description": "Persona agency bootloader for Zo Computer. Installs a multi-persona switching architecture with hard-switch rules (Builder, Debugger, Strategist, Writer, Architect) and methodology injection (Resea..."
     },
     {
       "slug": "prompt-to-skill",
-      "name": "prompt-to-skill",
-      "description": "Convert complex prompts into reusable skills. Assesses prompts for conversion eligibility",
-      "files": 4,
-      "has_scripts": true
+      "description": "Convert complex prompts into reusable skills. Assesses prompts for conversion eligibility and scaffolds new skill directory structures. Use when prompts have grown complex with multiple phases, scr..."
     },
     {
       "slug": "pulse",
-      "name": "pulse",
-      "description": "Automated build orchestration system. Spawns headless Zo workers (Drops) in parallel Waves,",
-      "files": 33,
-      "has_scripts": true
+      "description": "Automated build orchestration system. Spawns headless Zo workers (Drops) in parallel Waves, monitors health, validates Deposits via LLM judgment, handles dead Drops, and escalates via SMS. Supports..."
     },
     {
       "slug": "rapid-context-extractor",
-      "name": "rapid-context-extractor",
-      "description": "Extract and teach key points from a source using seed context, then force active engagement. Use when analyzing articles, documents, transcripts, video/audio transcripts, or mixed media where output m",
-      "files": 4,
-      "has_scripts": true
+      "description": "Extract and teach key points from a source using seed context, then force active engagement. Use when analyzing articles, documents, transcripts, video/audio transcripts, or mixed media where outpu..."
     },
     {
       "slug": "remotion",
-      "name": "remotion",
-      "description": "Create videos programmatically with React using Remotion. Scaffold projects, write compositions, and render MP4s. Zo-optimized wrapper around official Remotion agent skills.",
-      "files": 32,
-      "has_scripts": true
+      "description": "Create videos programmatically with React using Remotion. Scaffold projects, write compositions, and render MP4s. Zo-optimized wrapper around official Remotion agent skills."
     },
     {
       "slug": "resume-decoded",
-      "name": "resume-decoded",
-      "description": "Generates <YOUR_PRODUCT> \"Resume:Decoded\" candidate briefs as 2-page branded PDFs.",
-      "files": 17,
-      "has_scripts": true
+      "description": "Generates <YOUR_PRODUCT> \"Resume:Decoded\" candidate briefs as 2-page branded PDFs. Takes decomposer output directory \u2192 Outputs signal-based analysis with v4.3 linguistic framing. Uses Puppeteer for..."
     },
     {
       "slug": "skills-importer",
-      "name": "skills-importer",
-      "description": "Import skills from skills.sh and GitHub-hosted agentskills.io repositories into N5 OS. Transforms frontmatter, validates structure, and installs to Skills/ directory.",
-      "files": 4,
-      "has_scripts": true
+      "description": "Create distinctive frontend interfaces..."
     },
     {
       "slug": "sourcestack-monitor",
-      "name": "sourcestack-monitor",
-      "description": ">",
-      "files": 6,
-      "has_scripts": true
+      "description": ">"
     },
     {
       "slug": "systematic-debugging",
-      "name": "systematic-debugging",
-      "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
-      "files": 4,
-      "has_scripts": false
+      "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes"
     },
     {
       "slug": "task-system",
-      "name": "task-system",
-      "description": "ADHD-optimized task management system for Zo. Handles task registry,",
-      "files": 16,
-      "has_scripts": true
+      "description": "ADHD-optimized task management system for Zo. Handles task registry, morning/evening briefings, action conversation tracking, and staged task review. Uses LLM reasoning for semantic understanding, ..."
     },
     {
       "slug": "text-commute-info",
-      "name": "text-commute-info",
-      "description": "Gets your commute time and route options, then texts you the details",
-      "files": 1,
-      "has_scripts": false
+      "description": "Gets your commute time and route options, then texts you the details"
     },
     {
       "slug": "text-to-diagram",
-      "name": "text-to-diagram",
-      "description": "Transform text corpora (articles, docs, ideas, decisions) into Excalidraw-ready diagrams",
-      "files": 6,
-      "has_scripts": true
+      "description": "Transform text corpora (articles, docs, ideas, decisions) into Excalidraw-ready diagrams through a Socratic dialogue process. Analyzes content for visualizable concepts, engages in clarifying dialo..."
     },
     {
       "slug": "thread-close",
-      "name": "thread-close",
-      "description": "Close normal interactive conversation threads. Handles tier detection,",
-      "files": 4,
-      "has_scripts": true
+      "description": "Close normal interactive conversation threads. Handles tier detection, position extraction, AAR generation, and commit suggestions. For Pulse workers use drop-close. For post-build synthesis use bu..."
     },
     {
       "slug": "vapi",
-      "name": "vapi",
-      "description": "Voice AI integration with Vapi. Enables inbound/outbound phone calls with AI voice agents that can check calendars and book appointments. Webhook server handles dynamic assistant config, call history,",
-      "files": 12,
-      "has_scripts": true
+      "description": "Voice AI integration with Vapi. Enables inbound/outbound phone calls with AI voice agents that can check calendars and book appointments. Webhook server handles dynamic assistant config, call histo..."
     },
     {
       "slug": "warmer-jobs",
-      "name": "warmer-jobs",
-      "description": ">",
-      "files": 3,
-      "has_scripts": true
+      "description": ">"
     },
     {
       "slug": "zo-create-site",
-      "name": "create-site",
-      "description": "Create a site hosted on your Zo server. Private by default, publish with a click.",
-      "files": 1,
-      "has_scripts": false
+      "description": "Create a site hosted on your Zo server. Private by default, publish with a click."
     },
     {
       "slug": "zo-linkedin",
-      "name": "linkedin",
-      "description": "LinkedIn tool for searching profiles, checking messages, and summarizing your feed using session cookies.",
-      "files": 2,
-      "has_scripts": true
+      "description": "LinkedIn tool for searching profiles, checking messages, and summarizing your feed using session cookies."
     },
     {
       "slug": "zo-substrate",
-      "name": "zo-substrate",
-      "description": "Generalized Zo-to-Zo skill exchange system. Push and pull skills between any two Zo Computer",
-      "files": 11,
-      "has_scripts": true
+      "description": "Generalized Zo-to-Zo skill exchange system. Push and pull skills between any two Zo Computer instances using a shared GitHub repository as the substrate. Includes bundling with checksums, local con..."
     },
     {
       "slug": "zo-twitter",
-      "name": "twitter",
-      "description": "Let Zo use your X (Twitter) account",
-      "files": 1,
-      "has_scripts": false
+      "description": "Let Zo use your X (Twitter) account"
     },
     {
       "slug": "zo-twitter-2",
-      "name": "twitter",
-      "description": "Let Zo use your X (Twitter) account",
-      "files": 1,
-      "has_scripts": false
+      "description": "Let Zo use your X (Twitter) account"
     }
   ]
 }

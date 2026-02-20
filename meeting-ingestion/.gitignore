@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local config (contains user-specific settings)
+config.local.yaml
+drive_locations.yaml
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
